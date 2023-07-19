@@ -1,0 +1,61 @@
+package question1;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author hp
+ */
+public class QUESTION1 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+       Scanner scanner = new Scanner(System.in);
+
+        // Get student's full name
+        System.out.print("Enter student's full name: ");
+        String fullName = scanner.nextLine();
+
+        // Get subject names and marks
+        String[] subjects = new String[5];
+        double[] marks = new double[5];
+
+        for (int i = 0; i < 5; i++) {
+            System.out.print("Enter subject name " + (i + 1) + ": ");
+            subjects[i] = scanner.nextLine();
+
+            System.out.print("Enter marks for " + subjects[i] + ": ");
+            marks[i] = scanner.nextDouble();
+            scanner.nextLine(); // Consume the newline character
+        }
+
+        // Print student's information and grades
+        System.out.println("\nStudent Name: " + fullName);
+        System.out.println("Subject\t\tMarks\t\tGrade");
+
+        for (int i = 0; i < 5; i++) {
+            String grade = calculateGrade(marks[i]);
+            System.out.println(subjects[i] + "\t\t" + marks[i] + "\t\t" + grade);
+        }
+    }
+
+    // Helper method to calculate the grade based on marks
+    public static String calculateGrade(double marks) {
+        if (marks >= 90) {
+            return "A";
+        } else if (marks >= 80) {
+            return "B";
+        } else if (marks >= 70) {
+            return "C";
+        } else if (marks >= 60) {
+            return "D";
+        } else if (marks >= 40) {
+            return "E";
+        } else {
+            return "F";
+        }
+    }
+}
+
